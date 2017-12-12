@@ -12,7 +12,6 @@ AC folder is Reinforce Learning of Policy based Actor-Critic Model for making "M
 
 I make the java code generation for multi-thread
 
-=================================
 
 # **Version**
 
