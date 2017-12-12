@@ -24,7 +24,7 @@ I make the java code generation for multi-thread
 > - Python3.6
 > - CUDA 8.0
 
-==============================
+
 
 # **Discription**
 
