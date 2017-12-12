@@ -23,3 +23,13 @@ I make the java code generation for multi-thread
 > - Tensorflow 1.3
 > - Python3.6
 > - CUDA 8.0
+
+==============================
+
+# **Discription**
+
+> **Check for source code**
+> - I uploaded only the source code because of the size of the training data.
+If you want to train, you can get the necessary code in the data directory of the source code structure and try training.
+The source code uses two machine learning techniques. 
+First, we used LSTM-RNN for code learning. We used the Actor-Critic model, which is one of the reinforcement learning mechanisms, to enhance the behavior of certain codes. Since there are many cases that can be selected as an action in code generation, it is difficult to generate accurate code. However, since it provides basic algorithms and code for other learning, we hope to change it to a more advanced version.
