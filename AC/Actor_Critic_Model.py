@@ -4,7 +4,6 @@ import numpy as np
 import os
 import time
 from tensorflow.contrib import rnn
-from tensorflow.contrib import legacy_seq2seq
 
 
 
@@ -110,7 +109,7 @@ class Actor:
         episode_return_from_states = []
 
         for time in range(timeSteps):
-            action = self.choose_action(curr_state, time)
+            action = self.choose_action(curr_state)
 
             next_state, reward, done = self.agent.single_word_step(action)
             # Update the total reward
@@ -179,24 +178,14 @@ class Actor:
         print("step is {}".format(self.ModelSaveCnt))
 
 
-    def choose_action(self, state, time):
-        if time % 60 == 0:
-            action = 43
-        elif time % 45 == 0:
-            action = 70
-        elif time % 51 == 0:
-            action = 237
-        elif time % 57== 0:
-            action = 37
-        elif time % 61== 0:
-            action = 25
-        else:
-            state = state.reshape(1, self.observation_space)
-            softmax_out = self.sess.run(self.policy, feed_dict={self.x: state})
-            p = np.array(softmax_out[0])
-            print(np.sum(p))
-            p  = np.divide(p,np.sum(p))
-            action = np.random.choice(np.arange(self.action_space_n), 1, replace=True, p=p)[0]  # Sample action from prob density
+    def choose_action(self, state):
+
+        state = state.reshape(1, self.observation_space)
+        softmax_out = self.sess.run(self.policy, feed_dict={self.x: state})
+        p = np.array(softmax_out[0])
+        print(np.sum(p))
+        p  = np.divide(p,np.sum(p))
+        action = np.random.choice(np.arange(self.action_space_n), 1, replace=True, p=p)[0]  # Sample action from prob density
 
         return action
 
