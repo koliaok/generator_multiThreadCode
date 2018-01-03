@@ -38,7 +38,7 @@ def main():
                         help='rnn, gru, lstm, or nas')
     parser.add_argument('--batch_size', type=int, default=40,
                         help='minibatch size')
-    parser.add_argument('--r', type=int, default=40,
+    parser.add_argument('--seq_length', type=int, default=40,
                         help='RNN sequence length')
     parser.add_argument('--num_epochs', type=int, default=15,
                         help='number of epochs')
